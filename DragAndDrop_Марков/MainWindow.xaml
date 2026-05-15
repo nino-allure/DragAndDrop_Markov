@@ -5,9 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DragAndDrop_Марков"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" MouseUp="Image_MouseUp">
-    <Grid MouseUp="Image_MouseUp">
-        <Image x:Name="Image" MouseUp="Image_MouseUp" Source="/Images/1.png" HorizontalAlignment="Left" Height="50" 
-               Margin="68,84,0,0" VerticalAlignment="Top" Width="50"/>
+        Title="PhotoEdit" Height="600" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
+            <Button x:Name="LoadImageButton" Content="Загрузить фото" Click="LoadImageButton_Click"
+                    Margin="5" Padding="10,5"/>
+            <Button x:Name="CropButton" Content="Обрезать" Click="CropButton_Click"
+                    Margin="5" Padding="10,5"/>
+            <Button x:Name="SaveButton" Content="Сохранить" Click="SaveButton_Click"
+                    Margin="5" Padding="10,5"/>
+            <Button x:Name="ResetButton" Content="Сбросить" Click="ResetButton_Click"
+        Margin="5" Padding="10,5"/>
+        </StackPanel>
+
+
+
+        <Border Grid.Row="1" Margin="10" MouseDown="Canvas_MouseDown" MouseMove="Canvas_MouseMove" MouseUp="CanvasMouseUp">
+            <Grid>
+                <Image x:Name="MainImage"/>
+
+                <Border x:Name="CropRect" BorderBrush="Yellow">
+                    <Border x:Name="ResizeHandle" Width="12" Height="12"
+                            HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                            MouseDown="ResizeHandle_MouseDown"/>
+                </Border>
+            </Grid>
+        </Border>
     </Grid>
 </Window>
