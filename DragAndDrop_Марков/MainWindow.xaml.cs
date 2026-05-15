@@ -31,11 +31,11 @@ namespace DragAndDrop_Марков
         }
         private void Image_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-
+            dispatcherTimer.Stop();
         }
         private void Image_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-
+            dispatcherTimer.Start();
         }
 
     }
