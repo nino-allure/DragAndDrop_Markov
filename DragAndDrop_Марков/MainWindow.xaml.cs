@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DragAndDrop_Марков
 {
@@ -17,17 +18,16 @@ namespace DragAndDrop_Марков
     /// </summary>
     public partial class MainWindow : Window
     {
-        private DispatcherTimer dispatcherTimer;
+        public DispatcherTimer dispatcherTimer = new DispatcherTimer();;
         public MainWindow()
         {
             InitializeComponent();
-            dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Tick += DispatcherTimer_Tick;
             dispatcherTimer.Interval = new System.TimeSpan(0, 0, 0, 0, 1000 / 60);
         }
         private void DispatcherTimer_Tick(object sender, System.EventArgs e)
         {
-
+            Image.Margin = new Thickness(Mouse.GetPosition(this).X - 25, Mouse.GetPosition(this).Y - 25, 0, 0);
         }
         private void Image_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
