@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DragAndDrop_Марков"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <Image x:Name="Image" Source="/Images/1.png" HorizontalAlignment="Left" Height="50" 
+        Title="MainWindow" Height="350" Width="525" MouseUp="Image_MouseUp">
+    <Grid MouseUp="Image_MouseUp">
+        <Image x:Name="Image" MouseUp="Image_MouseUp" Source="/Images/1.png" HorizontalAlignment="Left" Height="50" 
                Margin="68,84,0,0" VerticalAlignment="Top" Width="50"/>
     </Grid>
 </Window>
